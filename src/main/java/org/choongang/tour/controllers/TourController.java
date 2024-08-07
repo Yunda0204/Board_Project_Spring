@@ -14,9 +14,9 @@ import java.util.List;
 public class TourController implements ExceptionProcessor {
 
     @GetMapping("/view/{id}")
-    public String view(@PathVariable Long seq, Model model) {
+    public String view(@PathVariable("id") Long id, Model model) {
 
-        model.addAttribute("CommonScript", List.of("map"));
+        model.addAttribute("addCommonScript", List.of("map"));
         model.addAttribute("addScript", List.of("tour/view"));
 
         return "front/tour/view";
