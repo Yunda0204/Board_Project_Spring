@@ -1,3 +1,9 @@
+const items = [
+    [126.94062742683245, 37.557756188912954],
+    [126.94120499658828, 37.557287959390024],
+    [126.94069261563956, 37.561184514897825]
+];
+
 window.addEventListener("DOMContentLoaded", function() {
     const mapEl = document.getElementById("map");
     mapEl.style.width = "1000px";
@@ -36,9 +42,12 @@ window.addEventListener("DOMContentLoaded", function() {
     function mapProcess(map) {
         // 지도 클릭시 좌표 정보
         kakao.maps.event.addListener(map, 'click', function(e) {
-            console.log(e);
+            const latLng = e.latLng;
+            const marker = new kakao.maps.Marker({
+                position: latLng
+            });
+
+            marker.setMap(map);
         });
     }
-
-
 });
